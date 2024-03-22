@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/primary"
+    tools:context=".activities.MainActivity">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/imageProfile"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginLeft="@dimen/_16sdp"
+        android:background="@drawable/background_icon"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:riv_corner_radius="@dimen/_8sdp"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/messageButton"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_marginRight="@dimen/_16sdp"
+        android:background="@drawable/background_icon"
+        android:padding="@dimen/_6sdp"
+        android:src="@drawable/ic_messages"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:tint="@color/white"
+        />
+
+    <!-- Add the SearchView widget -->
+    <FrameLayout
+        android:id="@+id/searchView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        app:layout_constraintBottom_toBottomOf="@id/imageProfile"
+        app:layout_constraintEnd_toStartOf="@id/messageButton"
+        app:layout_constraintStart_toEndOf="@id/imageProfile"
+        app:layout_constraintTop_toTopOf="@+id/imageProfile"
+        android:background="@drawable/background_search"
+        >
+
+        <ImageView
+            android:id="@+id/searchIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:src="@drawable/ic_search"
+            android:layout_marginStart="@dimen/_10ssp"
+            />
+
+        <EditText
+            android:id="@+id/searchEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/searchIcon"
+            android:layout_toRightOf="@id/searchIcon"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:hint="@string/search"
+            android:padding="@dimen/_8sdp"
+            android:textColor="@color/primary_text"
+            android:textColorHint="@color/secondary_text"
+            android:inputType="text"
+            android:imeOptions="actionSearch"
+            />
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/blueBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-15dp"
+        android:layout_marginTop="@dimen/_25sdp"
+        app:layout_constraintBottom_toBottomOf="@id/imageProfile"
+        app:layout_constraintStart_toEndOf="@id/imageProfile"
+        app:layout_constraintTop_toTopOf="@+id/imageProfile"
+        android:src="@drawable/ic_verified"
+        android:visibility="gone"
+        />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:background="@drawable/background_content_bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageProfile"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="0dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/feedRecycleView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:overScrollMode="never"
+            android:padding="@dimen/_20sdp"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+        <TextView
+            android:id="@+id/textErrorMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_24sdp"
+            android:layout_marginEnd="@dimen/_24sdp"
+            android:gravity="center"
+            android:textColor="@color/error"
+            android:textSize="@dimen/_12ssp"
+            android:visibility="gone"
+            />
+
+    </FrameLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabNewPost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_24sdp"
+        android:layout_marginRight="@dimen/_24sdp"
+        android:layout_marginBottom="@dimen/_12sdp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_add"
+        android:backgroundTint="@color/primary"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/white" />
+
+    <!-- Bottom Navigation-->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:itemIconTint="@color/primary"
+        app:itemTextColor="@color/secondary_text"
+        app:menu="@menu/bottom_navigation_menu"
+        app:layout_constraintBottom_toTopOf="@+id/faceBookBannerAdsLayout"
+        />
+
+    <LinearLayout
+        android:id="@+id/faceBookBannerAdsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Add your Facebook banner ads or other views here -->
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

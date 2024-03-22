@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- bottom_navigation_menu.xml -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+    <item
+        android:id="@+id/menu_find_friends"
+        android:icon="@drawable/ic_find_friends"
+        android:title="Find Friends" />
+    <item
+        android:id="@+id/menu_videos"
+        android:icon="@drawable/ic_video"
+        android:title="Videos" />
+    <item
+        android:id="@+id/menu_notifications"
+        android:icon="@drawable/ic_notifications"
+        android:title="Notifications" />
+    <item
+        android:id="@+id/menu_settings"
+        android:icon="@drawable/ic_settings_1"
+        android:title="Settings" />
+</menu>

@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/primary"
+    tools:context=".activities.settings.SettingsActivity">
+
+  <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/imageBack"
+      android:layout_width="@dimen/_30sdp"
+      android:layout_height="@dimen/_30sdp"
+      android:layout_marginTop="@dimen/_12sdp"
+      android:layout_marginStart="@dimen/_16sdp"
+      android:layout_marginLeft="@dimen/_16sdp"
+      android:background="@drawable/background_icon"
+      android:scaleType="centerCrop"
+      android:padding="@dimen/_6sdp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:riv_corner_radius="@dimen/_8sdp"
+      android:src="@drawable/ic_back"
+      android:tint="@color/white"
+      />
+
+  <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/imageSettings"
+      android:layout_width="@dimen/_30sdp"
+      android:layout_height="@dimen/_30sdp"
+      android:layout_marginTop="@dimen/_12sdp"
+      android:layout_marginStart="@dimen/_16sdp"
+      android:layout_marginLeft="@dimen/_16sdp"
+      android:background="@drawable/background_icon"
+      android:padding="@dimen/_6sdp"
+      android:src="@drawable/ic_settings"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      android:tint="@color/white"
+      />
+  <TextView
+      android:id="@+id/textName"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/_8sdp"
+      android:layout_marginEnd="@dimen/_8sdp"
+      android:ellipsize="end"
+      android:gravity="center"
+      android:maxLines="1"
+      android:textColor="@color/white"
+      android:textSize="@dimen/_14ssp"
+      android:textStyle="bold"
+      app:layout_constraintBottom_toBottomOf="@id/imageBack"
+      app:layout_constraintEnd_toStartOf="@id/imageSettings"
+      app:layout_constraintStart_toEndOf="@id/imageBack"
+      app:layout_constraintTop_toTopOf="@+id/imageBack"
+      />
+
+
+  <!--Linear Layout to make the log out button-->
+  <FrameLayout
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_marginTop="@dimen/_16sdp"
+      android:background="@drawable/background_content_bottom"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/imageBack"
+      app:layout_constraintVertical_bias="0.0"
+      tools:layout_editor_absoluteX="97dp">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/conversationRecycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:overScrollMode="never"
+        android:padding="@dimen/_20sdp"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+    <!--Layout to make the view profile button-->
+    <LinearLayout
+        android:id="@+id/viewProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@drawable/background_button"
+        android:orientation="horizontal"
+        android:padding="@dimen/_5sdp">
+
+      <com.makeramen.roundedimageview.RoundedImageView
+          android:id="@+id/imageProfileViewSettings"
+          android:layout_width="@dimen/_35sdp"
+          android:layout_height="@dimen/_35sdp"
+          android:background="@drawable/background_image"
+          android:scaleType="centerCrop"
+          app:riv_oval="true" />
+
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="start"
+            android:orientation="horizontal">
+
+          <TextView
+              android:id="@+id/textNameProfileViewSettings"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="@dimen/_8sdp"
+              android:layout_marginEnd="@dimen/_8sdp"
+              android:ellipsize="end"
+              android:maxLines="1"
+              android:textColor="@color/primary_text"
+              android:textSize="@dimen/_12ssp"
+              android:textStyle="bold" />
+
+          <ImageView
+              android:id="@+id/blueBadge"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:src="@drawable/ic_verified"
+              android:visibility="gone" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:text="@string/tap_to_view_your_profile"
+            android:textColor="@color/secondary_text" />
+
+      </LinearLayout>
+
+
+    </LinearLayout>
+
+    <!--Layout to make the edit profile button-->
+    <LinearLayout
+        android:id="@+id/editProfileSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_80sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@drawable/background_button"
+        android:orientation="horizontal"
+        android:padding="@dimen/_5sdp">
+
+      <com.makeramen.roundedimageview.RoundedImageView
+          android:layout_width="@dimen/_35sdp"
+          android:layout_height="@dimen/_35sdp"
+          android:layout_gravity="center"
+          android:scaleType="centerCrop"
+          android:src="@drawable/ic_edit"
+          app:riv_oval="true" />
+
+      <TextView
+          android:id="@+id/textEditProfileSettings"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:layout_marginStart="@dimen/_8sdp"
+          android:layout_marginEnd="@dimen/_8sdp"
+          android:ellipsize="end"
+          android:maxLines="1"
+          android:text="Edit your profile data"
+          android:textColor="@color/primary_text"
+          android:textSize="@dimen/_13ssp" />
+
+
+    </LinearLayout>
+
+    <!--Layout to make the Settings button-->
+    <LinearLayout
+        android:id="@+id/mainSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_130sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@drawable/background_button"
+        android:orientation="horizontal"
+        android:padding="@dimen/_5sdp">
+
+      <com.makeramen.roundedimageview.RoundedImageView
+          android:layout_width="@dimen/_35sdp"
+          android:layout_height="@dimen/_35sdp"
+          android:layout_gravity="center"
+          android:scaleType="centerCrop"
+          android:src="@drawable/ic_settings"
+          app:riv_oval="true" />
+
+      <TextView
+          android:id="@+id/textMainSettings"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:layout_marginStart="@dimen/_8sdp"
+          android:layout_marginEnd="@dimen/_8sdp"
+          android:ellipsize="end"
+          android:maxLines="1"
+          android:text="@string/settings"
+          android:textColor="@color/primary_text"
+          android:textSize="@dimen/_13ssp" />
+
+
+    </LinearLayout>
+
+    <!--Layout to make the Settings button-->
+    <LinearLayout
+        android:id="@+id/monetizationSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_180sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@drawable/background_button"
+        android:orientation="horizontal"
+        android:padding="@dimen/_5sdp">
+
+      <com.makeramen.roundedimageview.RoundedImageView
+          android:layout_width="@dimen/_35sdp"
+          android:layout_height="@dimen/_35sdp"
+          android:layout_gravity="center"
+          android:scaleType="centerCrop"
+          android:src="@drawable/ic_monetization"
+          app:riv_oval="true" />
+
+      <TextView
+          android:id="@+id/textMonetizationSettings"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:layout_marginStart="@dimen/_8sdp"
+          android:layout_marginEnd="@dimen/_8sdp"
+          android:ellipsize="end"
+          android:maxLines="1"
+          android:text="@string/monetization"
+          android:textColor="@color/primary_text"
+          android:textSize="@dimen/_13ssp" />
+
+
+    </LinearLayout>
+
+
+  </FrameLayout>
+
+  <LinearLayout
+      android:id="@+id/buttonSignOut"
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/_30sdp"
+      android:layout_marginEnd="@dimen/_10sdp"
+      android:layout_marginStart="@dimen/_10sdp"
+      android:layout_marginBottom="@dimen/_12sdp"
+      android:contentDescription="@string/app_name"
+      app:layout_constraintBottom_toTopOf="@+id/faceBookBannerAdsLayout"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:tint="@color/white"
+      android:orientation="horizontal"
+      android:background="@drawable/background_button"
+      >
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_marginRight="@dimen/_16sdp"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:background="@drawable/background_icon"
+        android:padding="@dimen/_6sdp"
+        android:src="@drawable/ic_logout"
+        android:tint="@color/black"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:text="@string/log_out"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/_15ssp"
+        />
+
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:id="@+id/faceBookBannerAdsLayout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent">
+
+    <!-- Add your Facebook banner ads or other views here -->
+
+  </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
